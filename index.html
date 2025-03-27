@@ -81,7 +81,7 @@
         align-items: center;
         background-color: rgba(0, 0, 0, 0.6);
         text-align: center;
-        /* padding: 20px; */
+        padding: 20px;
     }
 
     .caption p {
@@ -206,42 +206,109 @@
         position: absolute;
         bottom: 10px;
         width: 100%;
+        padding: 0 20px;
     }
 
     footer p {
         margin: 0;
+        text-align: center;
     }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .caption {
-            font-size: 24px;
+            font-size: 20px;
+            padding: 15px;
+            justify-content: flex-start;
+            padding-top: 30px;
+        }
+        
+        .caption p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        #telegram {
+            height: 50px;
+            width: 50px;
+            margin: 10px 0;
+        }
+
+        #join {
+            height: auto;
+            margin-top: 10px;
         }
 
         #df {
-            width: 80%;
-            flex-direction: column;
+            width: 90%;
             height: auto;
             padding: 15px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #df img {
+            width: 60px;
+            height: 60px;
         }
 
         #df p {
-            font-size: 20px;
-            text-align: center;
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
         .arrow {
-            padding: 8px 16px;
+            padding: 8px 15px;
             font-size: 18px;
         }
         
         h3 {
-            font-size: 20px;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        
+        .text {
+            font-size: 16px;
+            margin: 10px 0;
         }
         
         .titlesize {
             font-size: 16px;
+        }
+        
+        footer p {
+            font-size: 14px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .caption {
+            font-size: 16px;
+            padding-top: 20px;
+        }
+        
+        .caption p {
+            font-size: 16px;
+        }
+        
+        #df p {
+            font-size: 16px;
+        }
+        
+        h3 {
+            font-size: 16px;
+        }
+        
+        .text {
+            font-size: 14px;
+        }
+        
+        .titlesize {
+            font-size: 14px;
+        }
+        
+        footer p {
+            font-size: 12px;
         }
     }
 </style>
@@ -326,8 +393,8 @@
             </footer>
         </div>
 
-        <span class="arrow prev" onclick="controller(-1)">&#10094;</span>
-        <span class="arrow next" onclick="controller(1)">&#10095;</span>
+        <!-- <span class="arrow prev" onclick="controller(-1)">&#10094;</span>
+        <span class="arrow next" onclick="controller(1)">&#10095;</span> -->
     </div>
 
     <script>
