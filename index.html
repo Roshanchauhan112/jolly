@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jolly Reddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .slide {
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: relative;
+    }
+
+    .slide img {
+        height: 100vh;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .arrow {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: black;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 12px 20px;
+        font-weight: bold;
+        font-size: 10px;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .arrow:hover {
+        background-color: white;
+    }
+
+    .next {
+        right: 20px;
+    }
+
+    .prev {
+        left: 20px;
+    }
+
+    .caption {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        text-align: center;
+        /* padding: 20px; */
+    }
+
+    .caption p {
+        margin: 10px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #telegram {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        margin: 20px 0;
+        animation: blinkColor 2s infinite, pulseLogo 2s infinite;
+        cursor: pointer;
+    }
+
+    #join {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #df {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 90%;
+        background: red;
+        border-radius: 10px;
+        gap: 15px;
+        padding: 0 20px;
+        animation: blinkColor 2s infinite, pulseBox 2s infinite;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    #df img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        animation: pulseLogo 2s infinite;
+    }
+
+    #df p {
+        font-size: 28px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes blinkColor {
+        0% {
+            background-color: red;
+        }
+        25% {
+            background-color: blue;
+        }
+        50% {
+            background-color: green;
+        }
+        75% {
+            background-color: yellow;
+        }
+        100% {
+            background-color: red;
+        }
+    }
+
+    @keyframes pulseLogo {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes pulseBox {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    h3 {
+        margin: 10px 0;
+        font-size: 24px;
+        color: #ffff00;
+        text-shadow: 0 0 10px #ffff00;
+    }
+
+    .text {
+        margin: 15px 0;
+        font-size: 18px;
+        color: white;
+    }
+
+    .seconds {
+        color: #ff0000;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+    .titlesize {
+        font-size: 20px;
+        color: #ffffff;
+        margin: 10px 0;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+    }
+
+    footer p {
+        margin: 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .caption {
+            font-size: 24px;
+        }
+
+        #df {
+            width: 80%;
+            flex-direction: column;
+            height: auto;
+            padding: 15px;
+        }
+
+        #df p {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .arrow {
+            padding: 8px 16px;
+            font-size: 18px;
+        }
+        
+        h3 {
+            font-size: 20px;
+        }
+        
+        .titlesize {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<body>
+    <div class="slider-container">
+        <div class="slide">
+            <img src="1.jpg" alt="Jolly Reddy" />
+            <div class="caption">
+                <p>👑Jolly Reddy👑</p>
+                <p>🏏Cricket Fixing Ke Sache Saathi!🏏</p>
+                <img src="telegram.jpg" alt="Telegram" id="telegram" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                <div id="join" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                    <div id="df">
+                        <p>Join The Original Jolly Reddy</p>
+                        <img src="telegram.jpg" alt="Telegram">
+                    </div>
+                </div>
+                <h3>⚡️97% ACCURACY⚡️</h3>
+                <div class="text" id="bottomContent"><span class="timer">FREE JOINING ENDS IN...</span><span
+                    class="seconds">60</span></div>
+                <div class="titlesize">10 Year Of Trusted Service</div>
+            </div>
+            <footer>
+                <p style="text-align: center; animation: blink 1s infinite;">
+                    <span style="color: #ffffff;"><strong>This Channel Advertise By <a target="_blank"
+                                href="https://wa.me/+9532473116"><span
+                                    style="color: #ffff00;">siviagency</span></a></strong></span>
+                </p>
+            </footer>
+        </div>
+
+        <div class="slide">
+            <img src="2.jpg" alt="" />
+            <div class="caption">
+                <p>👑Jolly Reddy👑</p>
+                <p>🏏Cricket Fixing Ke Sache Saathi!🏏</p>
+                <img src="telegram.jpg" alt="Telegram" id="telegram" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                <div id="join" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                    <div id="df">
+                        <p>Join The Original Jolly Reddy</p>
+                        <img src="telegram.jpg" alt="Telegram">
+                    </div>
+                </div>
+                <h3>⚡️97% ACCURACY⚡️</h3>
+                <div class="text" id="bottomContent"><span class="timer">FREE JOINING ENDS IN...</span><span
+                    class="seconds">60</span></div>
+                <div class="titlesize">10 Year Of Trusted Service</div>
+            </div>
+            <footer>
+                <p style="text-align: center; animation: blink 1s infinite;">
+                    <span style="color: #ffffff;"><strong>This Channel Advertise By <a target="_blank"
+                                href="https://wa.me/+9532473116"><span
+                                    style="color: #ffff00;">siviagency</span></a></strong></span>
+                </p>
+            </footer>
+        </div>
+
+        <div class="slide">
+            <img src="3.avif" alt="" />
+            <div class="caption">
+                <p>👑Jolly Reddy👑</p>
+                <p>🏏Cricket Fixing Ke Sache Saathi!🏏</p>
+                <img src="telegram.jpg" alt="Telegram" id="telegram" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                <div id="join" onclick="window.location.href='https://t.me/+oYO6P_4Rv7Q5YTg1'">
+                    <div id="df">
+                        <p>Join The Original Jolly Reddy</p>
+                        <img src="telegram.jpg" alt="Telegram">
+                    </div>
+                </div>
+                <h3>⚡️97% ACCURACY⚡️</h3>
+                <div class="text" id="bottomContent"><span class="timer">FREE JOINING ENDS IN...</span><span
+                    class="seconds">60</span></div>
+                <div class="titlesize">10 Year Of Trusted Service</div>
+            </div>
+            <footer>
+                <p style="text-align: center; animation: blink 1s infinite;">
+                    <span style="color: #ffffff;"><strong>This Channel Advertise By <a target="_blank"
+                                href="https://wa.me/+9532473116"><span
+                                    style="color: #ffff00;">siviagency</span></a></strong></span>
+                </p>
+            </footer>
+        </div>
+
+        <span class="arrow prev" onclick="controller(-1)">&#10094;</span>
+        <span class="arrow next" onclick="controller(1)">&#10095;</span>
+    </div>
+
+    <script>
+        let flag = 0;
+
+        function controller(x) {
+            flag += x;
+            slideshow(flag);
+        }
+
+        function slideshow(num) {
+            let slides = document.getElementsByClassName("slide");
+
+            if (num >= slides.length) {
+                flag = 0;
+            }
+
+            if (num < 0) {
+                flag = slides.length - 1;
+            }
+
+            for (let y of slides) {
+                y.style.display = "none";
+            }
+
+            slides[flag].style.display = "block";
+        }
+
+        // Call slideshow initially
+        slideshow(flag);
+
+        // Auto-slide every 2 seconds
+        setInterval(() => {
+            flag++;
+            slideshow(flag);
+        }, 2000);
+
+        // Countdown timer
+        let seconds = 60;
+        const timerElement = document.querySelector('.seconds');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                document.querySelector('.timer').textContent = "OFFER EXPIRED!";
+                timerElement.textContent = "";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
